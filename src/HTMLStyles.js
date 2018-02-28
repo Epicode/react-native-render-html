@@ -138,14 +138,6 @@ function cssToRNStyle (css, styleset, { parentTag, emSize, ignoredStyles, allowe
                         const pxSize = parseFloat(value.replace('em', '')) * emSize;
                         return [key, pxSize];
                     }
-                    // See if we can convert a 20px to a 20 automagically
-                    const numericValue = parseFloat(value.replace('px', ''));
-                    if (!isNaN(numericValue) && styleProp !== 'fontWeight') {
-                        testStyle[key] = numericValue;
-                        if (checkPropTypes(styleProp, testStyle, key, 'react-native-render-html') == null) {
-                            return [key, numericValue];
-                        }
-                    }
                 }
                 return [key, value];
             }
