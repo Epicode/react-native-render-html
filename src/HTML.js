@@ -283,7 +283,9 @@ export default class HTML extends PureComponent {
             if (type === 'text') {
                 if (!strippedData || !strippedData.length) {
                     // This is blank, don't render an useless additional component
-                    return false;
+                    if(data !== ' ' && data !== '\u00A0') {
+                        return false;
+                    }
                 }
                 // Text without tags, these can be mapped to the Text wrapper
                 return {
